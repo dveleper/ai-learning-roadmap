@@ -119,3 +119,40 @@ function startProgressSync({ client, dates, legacyKey, readState, showState, sta
     signOut: () => client.auth.signOut({ scope: 'local' })
   };
 }
+
+
+// Refresh through the existing sync queue when the signed-in user's rows change.
+const startProgressSyncWithoutRealtime = startProgressSync;
+startProgressSync = function (options) {
+  const progress = startProgressSyncWithoutRealtime(options);
+  const { client } = options;
+  let watchedUser;
+  let channel;
+  let refreshTimer;
+  client.auth.onAuthStateChange((event, session) => {
+    const userId = session?.user?.id;
+    if (watchedUser === userId) return;
+    watchedUser = userId;
+    clearTimeout(refreshTimer);
+    const previous = channel;
+    channel = undefined;
+    setTimeout(() => {
+      if (previous) void client.removeChannel(previous);
+      if (!userId || watchedUser !== userId || channel) return;
+      const subscription = client.channel('learning-progress:' + userId);
+      channel = subscription;
+      const refresh = () => {
+        if (channel !== subscription || watchedUser !== userId) return;
+        clearTimeout(refreshTimer);
+        refreshTimer = setTimeout(progress.sync, 150);
+      };
+      const filter = { schema: 'public', table: 'learning_progress', filter: 'user_id=eq.' + userId };
+      subscription.on('postgres_changes', { ...filter, event: 'INSERT' }, refresh)
+        .on('postgres_changes', { ...filter, event: 'UPDATE' }, refresh)
+        .subscribe(result => {
+          if (result === 'SUBSCRIBED') refresh();
+        });
+    }, 0);
+  });
+  return progress;
+};
