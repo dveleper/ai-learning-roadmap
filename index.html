@@ -17,6 +17,7 @@
   <div class="actions">
     <a class="btn primary" href="#temario">Ver el plan de estudios</a>
     <a class="btn" href="#requisitos">Consultar prerrequisitos</a>
+    <a class="btn" href="#laboratorios-agenticos">Laboratorios agénticos</a>
     <a class="btn" href="#certificacion">Certificación Anthropic</a>
     <a class="btn" href="#despliegue">Laboratorio de despliegue</a>
     <a class="btn" href="#sesiones">Ir a las sesiones</a>
@@ -44,6 +45,33 @@
   <h2>Plan de estudios</h2>
   <p>Las seis fases combinan temas técnicos, práctica de inglés y un entregable para demostrar lo aprendido.</p>
   <ol id="curriculum" class="curriculum-grid"></ol>
+</section>
+<section id="laboratorios-agenticos" class="section">
+  <h2>Fase 2 · Sistemas agénticos para modernizar servicios y crear APIs</h2>
+  <p>Construye un flujo que use Claude para analizar evidencia y proponer cambios, con compilación, pruebas y revisión humana antes de integrar cada PR. Guarda los contratos, las decisiones y los resultados en el repositorio. Usa Claude Code para trabajar sobre el código y practica la coordinación del flujo con Claude API y herramientas acotadas en un repositorio de laboratorio.</p>
+  <div class="course-grid">
+    <div class="panel">
+      <h3>Migración de una integración existente</h3>
+      <ol>
+        <li><strong>Inventario.</strong> Reúne contratos, configuraciones, rutas, dependencias y ejemplos sintéticos. Para IBM ACE o IBM Integration Bus 10, revisa flujos, ESQL, WSDL/XSD, colas MQ y políticas aplicables. Para otro origen, usa el mismo inventario con sus artefactos equivalentes. Registra archivo y evidencia para cada regla identificada.</li>
+        <li><strong>Caracterización.</strong> Captura entradas, salidas y efectos observables. Incluye errores, timeouts, transacciones, duplicados y formatos XML o JSON. Marca reglas desconocidas para revisión humana.</li>
+        <li><strong>Migración incremental.</strong> Pide a Claude un plan por flujo. Define puertos y adaptadores en el scaffold Java, conserva el contrato acordado y migra una porción a la vez. Usa pruebas diferenciales y normaliza únicamente campos variables acordados, como timestamps.</li>
+        <li><strong>Validación y transición.</strong> Compara las salidas y los efectos del origen y el destino en un sandbox con dependencias simuladas. Documenta qué diferencias se aceptan. Ensaya el cambio de tráfico y el rollback en laboratorio.</li>
+      </ol>
+      <p><strong>Evidencia.</strong> Servicio Java migrado, matriz de equivalencia con referencias al origen y resultados de pruebas de paridad.</p>
+    </div>
+    <div class="panel">
+      <h3>Desarrollo de una API nueva</h3>
+      <ol>
+        <li><strong>Especificación.</strong> Define consumidores, reglas de negocio, permisos y criterios de aceptación para una API de siniestros. Usa BMad o GitHub Spec Kit para producir la especificación y el plan.</li>
+        <li><strong>Contrato primero.</strong> Diseña OpenAPI, ejemplos, errores, versionado e idempotencia cuando corresponda. Pide a Claude que detecte ambigüedades y convierte los criterios aprobados en pruebas.</li>
+        <li><strong>Implementación.</strong> Divide el trabajo en cambios pequeños. Implementa una operación en el scaffold Java con dominio, caso de uso y adaptadores. Usa herramientas de lectura y pruebas para que el agente verifique su propuesta.</li>
+        <li><strong>Revisión y operación.</strong> Comprueba el contrato, ejecuta pruebas negativas, revisa la telemetría y prepara un PR con evidencia y pasos de despliegue.</li>
+      </ol>
+      <p><strong>Evidencia.</strong> API nueva con OpenAPI, pruebas de contrato e integración y una demostración en inglés.</p>
+    </div>
+  </div>
+  <p><strong>Evaluación común.</strong> Ejecuta el flujo sobre casos nuevos y mide corrección, cambios rechazados en revisión, latencia y costo. Detén el flujo cuando falte evidencia, falle una prueba o se agote su presupuesto. Relaciona cada práctica con Agentes y flujos, Aplicaciones e integración, y Evaluación y depuración de Developer – Foundations.</p>
 </section>
 <section id="certificacion" class="section">
   <h2>Ruta de certificación Anthropic</h2>
