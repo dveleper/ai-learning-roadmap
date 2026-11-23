@@ -44,6 +44,11 @@
 <section id="temario" class="section">
   <h2>Plan de estudios</h2>
   <p>Las seis fases combinan temas técnicos, práctica de inglés y un entregable para demostrar lo aprendido.</p>
+  <div class="panel">
+    <h3>Mensajería e integración XML y JSON</h3>
+    <p>En la fase 1, valida una cotización en JSON y XML. Usa OpenAPI para describir la API REST, JSON Schema para validar JSON y XSD para validar XML. Con Jackson y JAXB, convierte ambos formatos al mismo modelo de dominio y prueba campos requeridos, importes inválidos y namespaces.</p>
+    <p>En la fase 2, integra un proveedor SOAP simulado mediante su contrato WSDL y transforma la respuesta XML en una cotización que la API devuelve en JSON. En las fases siguientes, publica un evento de emisión en Kafka y enruta un mensaje en RabbitMQ. Practica evolución de esquemas, idempotencia, reintentos y trazabilidad. Usa Claude Code para proponer casos de prueba y comprueba los resultados ejecutándolos.</p>
+  </div>
   <ol id="curriculum" class="curriculum-grid"></ol>
 </section>
 <section id="laboratorios-agenticos" class="section">
@@ -172,9 +177,9 @@ const phases=[['Fundamentos de Java, Claude e inglés técnico','23 nov 2026 –
   "2027-01-18": "Explicar el ciclo HTTP",
   "2027-01-19": "Crear un controlador Spring MVC",
   "2027-01-20": "Aclarar errores de validación",
-  "2027-01-21": "Diseñar contrato OpenAPI",
+  "2027-01-21": "Diseñar contratos JSON y XML con OpenAPI y XSD",
   "2027-01-22": "Implementar validación y errores",
-  "2027-01-23": "Evaluar el contrato",
+  "2027-01-23": "Validar y transformar mensajes JSON y XML",
   "2027-01-25": "Describir persistencia y transacciones",
   "2027-01-26": "Crear adaptador PostgreSQL",
   "2027-01-27": "Explicar datos ausentes",
@@ -195,7 +200,7 @@ const phases=[['Fundamentos de Java, Claude e inglés técnico','23 nov 2026 –
   "2027-02-13": "Defender el hito de fase 1"
 };
 const storageKey='ai-roadmap-progress-v1';let state={done:{},logs:{}};try{let raw=JSON.parse(localStorage.getItem(storageKey));if(raw&&typeof raw==='object'){state.done=raw.done||{};state.logs=raw.logs||{}}}catch(e){}let progressSync; const $=id=>document.getElementById(id);const persist=()=>{try{localStorage.setItem(progressSync?.storageKey() || storageKey,JSON.stringify(state))}catch(e){alert('No se pudo guardar en este navegador. Exporta un respaldo.')}};
-const phaseContents = [["Diagnóstico de conversación y comprensión","Vocabulario técnico y práctica de speaking","Primer laboratorio Java/Spring Boot con Claude Code, MCP y agentes"],["Inglés para explicar decisiones técnicas","RAG con recuperación de documentos y citas","Herramientas y agentes, con evaluación de respuestas y seguridad"],["Inglés para explicar incidentes y despliegues","Docker, Kubernetes local con kind, Helm, Argo CD y Amazon EKS","Observabilidad con métricas, trazas y alertas"],["Diseño de sistemas y documentación de decisiones","Seguridad, costos y escalabilidad","Liderazgo técnico y defensa oral de la arquitectura"],["Agentes avanzados y evaluación continua","Operación de soluciones de IA en la nube","Portafolio profesional y simulacros de certificación"],["Arquitectura empresarial y presentación de casos","Entrevistas técnicas y de comportamiento en inglés","Defensa del portafolio y evaluación final de inglés"]];
+const phaseContents = [["Diagnóstico de conversación y comprensión", "Vocabulario técnico y práctica de speaking", "Primer laboratorio Java/Spring Boot con Claude Code, MCP y agentes", "Contratos JSON con OpenAPI y JSON Schema, y XML con XSD en Java"], ["Inglés para explicar decisiones técnicas", "RAG con recuperación de documentos y citas", "Herramientas y agentes, con evaluación de respuestas y seguridad · Adaptadores SOAP/XML y REST/JSON, transformación a un modelo común y pruebas con datos sintéticos"], ["Inglés para explicar incidentes y despliegues", "Docker, Kubernetes local con kind, Helm, Argo CD y Amazon EKS", "Observabilidad con métricas, trazas y alertas · Diagnóstico de fallos de integración y trazabilidad de mensajes"], ["Diseño de sistemas y documentación de decisiones", "Seguridad, costos y escalabilidad", "Liderazgo técnico y defensa oral de la arquitectura · Kafka y RabbitMQ, contratos de eventos con AsyncAPI, versionado y manejo de duplicados"], ["Agentes avanzados y evaluación continua", "Operación de soluciones de IA en la nube", "Portafolio profesional y simulacros de certificación · Evolución compatible de contratos JSON y XML, reintentos y cola de mensajes fallidos"], ["Arquitectura empresarial y presentación de casos", "Entrevistas técnicas y de comportamiento en inglés", "Defensa del portafolio y evaluación final de inglés · Demostración de interoperabilidad XML/JSON y defensa del diseño en inglés"]];
 const milestones = [
   'Ejecutar un laboratorio de Java/Spring Boot con una herramienta de IA y describir en inglés qué hace y cómo se usa.',
   'Demostrar un asistente con recuperación de documentos y citas, y justificar sus límites con resultados de evaluación.',
