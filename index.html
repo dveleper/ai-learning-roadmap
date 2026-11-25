@@ -3,6 +3,7 @@
 
 .phase-summary{display:block;margin-top:8px;font-size:.88rem}
 .phase .progress{margin-top:10px}
+.phase-certification{display:block;font-size:.88rem;line-height:1.4;color:#a6e5d5;margin-top:8px}
 
 .course-grid,.curriculum-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 .curriculum-grid{list-style:none;padding:0;margin:18px 0 0}
@@ -204,6 +205,14 @@ const phases=[['Fundamentos de Java, Claude e inglés técnico','25 nov 2026 –
 };
 const storageKey='ai-roadmap-progress-v1';let state={done:{},logs:{}};try{let raw=JSON.parse(localStorage.getItem(storageKey));if(raw&&typeof raw==='object'){state.done=raw.done||{};state.logs=raw.logs||{}}}catch(e){}let progressSync; const $=id=>document.getElementById(id);const persist=()=>{try{localStorage.setItem(progressSync?.storageKey() || storageKey,JSON.stringify(state))}catch(e){alert('No se pudo guardar en este navegador. Exporta un respaldo.')}};
 const phaseContents = [["Diagnóstico de conversación y comprensión", "Vocabulario técnico y práctica de speaking", "Primer laboratorio Java/Spring Boot con Claude Code, MCP y agentes", "Contratos JSON con OpenAPI y JSON Schema, y XML con XSD en Java"], ["Inglés para explicar decisiones técnicas", "RAG con recuperación de documentos y citas", "Herramientas y agentes, con evaluación de respuestas y seguridad · Adaptadores SOAP/XML y REST/JSON, transformación a un modelo común y pruebas con datos sintéticos"], ["Inglés para explicar incidentes y despliegues", "Docker, Kubernetes local con kind, Helm, Argo CD y Amazon EKS", "Observabilidad con métricas, trazas y alertas · Diagnóstico de fallos de integración y trazabilidad de mensajes"], ["Diseño de sistemas y documentación de decisiones", "Seguridad, costos y escalabilidad", "Liderazgo técnico y defensa oral de la arquitectura · Kafka y RabbitMQ, contratos de eventos con AsyncAPI, versionado y manejo de duplicados"], ["Agentes avanzados y evaluación continua", "Operación de soluciones de IA en la nube", "Portafolio profesional y simulacros de certificación · Evolución compatible de contratos JSON y XML, reintentos y cola de mensajes fallidos"], ["Arquitectura empresarial y presentación de casos", "Entrevistas técnicas y de comportamiento en inglés", "Defensa del portafolio y evaluación final de inglés · Demostración de interoperabilidad XML/JSON y defensa del diseño en inglés"]];
+const phaseCertifications = [
+  'Claude Certified Developer – Foundations (examen objetivo). Associate – Foundations opcional.',
+  'Claude Certified Developer – Professional. Completar Developer – Foundations si queda pendiente. AWS AI Practitioner opcional.',
+  'Certified Kubernetes Application Developer (CKAD). Iniciar AWS Certified Developer – Associate. KCNA y Cloud Practitioner opcionales.',
+  'AWS Certified Developer – Associate y Claude Certified Architect – Foundations. AWS Solutions Architect – Associate opcional.',
+  'Claude Certified Architect – Professional (preparación). Certified Kubernetes Administrator (CKA) opcional.',
+  'Claude Certified Architect – Professional (presentación según preparación y disponibilidad).'
+];
 const milestones = [
   'Ejecutar un laboratorio de Java/Spring Boot con una herramienta de IA y describir en inglés qué hace y cómo se usa.',
   'Demostrar un asistente con recuperación de documentos y citas, migrar una integración y diseñar una API nueva con evidencia de evaluación para Developer – Professional.',
@@ -218,6 +227,7 @@ $('curriculum').innerHTML = phases.map(([name, , english, technology, deliverabl
     <span class="muted">Fase ${index + 1} · ${english}</span>
     <h3>${name}</h3>
     <p>${technology}</p>
+    <p><strong>Certificación objetivo.</strong> ${phaseCertifications[index]}</p>
     <ul>${phaseContents[index].map(topic => `<li>${topic}</li>`).join('')}</ul>
     <p><strong>Entregable.</strong> ${deliverable}</p>
     <p><strong>Hito de aprendizaje.</strong> ${milestones[index]}</p>
@@ -281,6 +291,7 @@ function renderPhase(index) {
   $('phaseDetail').innerHTML = `<span class="muted">FASE ${index + 1} · ${rangeText(index)}</span>
     <h3>${phase[0]}</h3><p><strong>Inglés</strong> · ${phase[2]}</p>
     <p><strong>Tecnología</strong> · ${phase[3]}</p>
+    <p><strong>Certificación objetivo</strong> · ${phaseCertifications[index]}</p>
     <h3>Contenidos</h3><ul>${phaseContents[index].map(item => '<li>' + item + '</li>').join('')}</ul>
     <p><strong>Entregable</strong> · ${phase[4]}</p>${index ? '<p>Duración prevista · ' + phase[1] + ' semanas</p>' : ''}`;
   const button = $('activatePhase');
@@ -306,7 +317,7 @@ function renderPhase(index) {
 for (const [i, phase] of phases.entries()) {
   const button = document.createElement('button');
   button.className = 'phase';
-  button.innerHTML = `<span class="number">FASE ${i + 1}</span><h3>${phase[0]}</h3><small></small><div class="progress" aria-hidden="true"><div></div></div><span class="phase-summary"></span>`;
+  button.innerHTML = `<span class="number">FASE ${i + 1}</span><h3>${phase[0]}</h3><span class="phase-certification">${phaseCertifications[i].split(". ")[0]}</span><small></small><div class="progress" aria-hidden="true"><div></div></div><span class="phase-summary"></span>`;
   button.onclick = () => renderPhase(i);
   $('phaseButtons').appendChild(button);
 }
