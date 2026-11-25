@@ -39,6 +39,8 @@ section[id],details[id],#bitacora,[id^="clase-"]{scroll-margin-top:85px}
 .resource-content li{line-height:1.6;margin-bottom:10px}
 .phase-picker-title{margin:24px 0 12px}
 @media(max-width:750px){.portal-nav{overflow-x:auto;flex-wrap:nowrap}.portal-nav a{font-size:13px;padding:9px}.resource-panel>summary{padding:16px 46px 16px 16px}.resource-content{padding:14px}.resource-title{font-size:16px}}
+
+.cert-topics{margin-top:18px}.cert-topics h4{font-size:15px;margin:0 0 10px}.cert-block{border:1px solid #34475d;border-radius:8px;padding:12px;margin:8px 0}.cert-block summary{font-size:14px;line-height:1.45;cursor:pointer;color:#a6e5d5}.cert-block p{margin:8px 0 0}.cert-block ul{padding-left:1.25rem}.cert-block li{font-size:14px}
 </style></head><body><main><header class="top"><div class="logo">◈ ENGLISH + AI ENGINEERING</div><div class="pill">Ruta de aprendizaje · 2026—2028</div></header><section class="hero">
   <h1>De desarrollo backend a <strong>arquitectura de soluciones de IA</strong></h1>
   <p>Ruta de seis fases para profesionales de software que quieren diseñar, construir y operar aplicaciones con IA generativa mientras desarrollan el inglés técnico para explicar sus decisiones.</p>
@@ -251,7 +253,7 @@ const phases=[['Fundamentos de Java, Claude e inglés técnico','25 nov 2026 –
   "2027-02-16": "Defender el hito de fase 1"
 };
 const storageKey='ai-roadmap-progress-v1';let state={done:{},logs:{}};try{let raw=JSON.parse(localStorage.getItem(storageKey));if(raw&&typeof raw==='object'){state.done=raw.done||{};state.logs=raw.logs||{}}}catch(e){}let progressSync; const $=id=>document.getElementById(id);const persist=()=>{try{localStorage.setItem(progressSync?.storageKey() || storageKey,JSON.stringify(state))}catch(e){alert('No se pudo guardar en este navegador. Exporta un respaldo.')}};
-const phaseContents = [["Diagnóstico de conversación y comprensión", "Inglés técnico para requisitos, explicaciones de código y revisión de PR", "Java y Spring Boot: scaffold de arquitectura limpia, API de cotizaciones y pruebas", "Contratos JSON con OpenAPI y JSON Schema, y XML con XSD en Java", "CCDV-F · Agentes y flujos (14,7 %): workflows, agentes, SDK, subagentes y cuándo elegir cada enfoque.", "CCDV-F · Aplicaciones e integración (33,1 %): Messages API, streaming, lotes, caché, requisitos, versionado de configuración y adaptador Java.", "CCDV-F · Claude Code (3,1 %): CLAUDE.md, reglas, skills, comandos, sesiones, configuración y revisión de cambios.", "CCDV-F · Evaluación, pruebas y depuración (2,6 %): casos de evaluación, errores de integración y validación de resultados.", "CCDV-F · Selección y optimización de modelos (16,8 %): tokens, ventana de contexto, calidad, latencia, costo y caché.", "CCDV-F · Prompts y contexto (11,0 %): instrucciones, ejemplos, restricciones, gestión del contexto y salidas estructuradas.", "CCDV-F · Seguridad y uso responsable (8,1 %): mínimo privilegio, datos sintéticos, permisos y revisión humana.", "CCDV-F · Herramientas y MCP (10,6 %): contratos, argumentos, resultados, manejo de errores y herramienta de consulta de solo lectura.", "Preparación del examen: preguntas propias en inglés, práctica por dominio, identificación de brechas y voucher al demostrar preparación."], ["Inglés para explicar decisiones técnicas", "RAG con recuperación de documentos y citas", "Herramientas y agentes, con evaluación de respuestas y seguridad · Adaptadores SOAP/XML y REST/JSON, transformación a un modelo común y pruebas con datos sintéticos"], ["Inglés para explicar incidentes y despliegues", "Docker, Kubernetes local con kind, Helm, Argo CD y Amazon EKS", "Observabilidad con métricas, trazas y alertas · Diagnóstico de fallos de integración y trazabilidad de mensajes"], ["Diseño de sistemas y documentación de decisiones", "Seguridad, costos y escalabilidad", "Liderazgo técnico y defensa oral de la arquitectura · Kafka y RabbitMQ, contratos de eventos con AsyncAPI, versionado y manejo de duplicados"], ["Agentes avanzados y evaluación continua", "Operación de soluciones de IA en la nube", "Portafolio profesional y simulacros de certificación · Evolución compatible de contratos JSON y XML, reintentos y cola de mensajes fallidos"], ["Arquitectura empresarial y presentación de casos", "Entrevistas técnicas y de comportamiento en inglés", "Defensa del portafolio y evaluación final de inglés · Demostración de interoperabilidad XML/JSON y defensa del diseño en inglés"]];
+const phaseContents = [["Diagnóstico de conversación y comprensión", "Inglés técnico para requisitos, explicaciones de código y revisión de PR", "Java y Spring Boot: scaffold de arquitectura limpia, API de cotizaciones y pruebas", "Contratos JSON con OpenAPI y JSON Schema, y XML con XSD en Java", "Preparación del examen: preguntas propias en inglés, práctica por dominio, identificación de brechas y voucher al demostrar preparación."], ["Inglés para explicar decisiones técnicas", "RAG con recuperación de documentos y citas", "Herramientas y agentes, con evaluación de respuestas y seguridad · Adaptadores SOAP/XML y REST/JSON, transformación a un modelo común y pruebas con datos sintéticos"], ["Inglés para explicar incidentes y despliegues", "Docker, Kubernetes local con kind, Helm, Argo CD y Amazon EKS", "Observabilidad con métricas, trazas y alertas · Diagnóstico de fallos de integración y trazabilidad de mensajes"], ["Diseño de sistemas y documentación de decisiones", "Seguridad, costos y escalabilidad", "Liderazgo técnico y defensa oral de la arquitectura · Kafka y RabbitMQ, contratos de eventos con AsyncAPI, versionado y manejo de duplicados"], ["Agentes avanzados y evaluación continua", "Operación de soluciones de IA en la nube", "Portafolio profesional y simulacros de certificación · Evolución compatible de contratos JSON y XML, reintentos y cola de mensajes fallidos"], ["Arquitectura empresarial y presentación de casos", "Entrevistas técnicas y de comportamiento en inglés", "Defensa del portafolio y evaluación final de inglés · Demostración de interoperabilidad XML/JSON y defensa del diseño en inglés"]];
 const phaseCertifications = [
   'Claude Certified Developer – Foundations (examen objetivo). Associate – Foundations opcional.',
   'Claude Certified Developer – Professional. Completar Developer – Foundations si queda pendiente. AWS AI Practitioner opcional.',
@@ -269,6 +271,186 @@ const milestones = [
   'Defender un caso integral de arquitectura de IA en inglés y comprobar el nivel alcanzado mediante una evaluación final.'
 ];
 
+const certificationTopics = [
+  [
+    {
+      "name": "Claude Certified Developer – Foundations (CCDV-F)",
+      "url": "https://cc.sj-cdn.net/instructor/6nizmqk8tpzpfjvt6qmmav7rh/public/1794946716/Claude_Certified_Developer_-_Foundations_Exam_Guide.pdf",
+      "topics": [
+        "Agentes y flujos (14,7 %): workflows, agentes, SDK, subagentes y cuándo elegir cada enfoque.",
+        "Aplicaciones e integración (33,1 %): Messages API, streaming, lotes, caché, requisitos, versionado de configuración y adaptador Java.",
+        "Claude Code (3,1 %): CLAUDE.md, reglas, skills, comandos, sesiones, configuración y revisión de cambios.",
+        "Evaluación, pruebas y depuración (2,6 %): casos de evaluación, errores de integración y validación de resultados.",
+        "Selección y optimización de modelos (16,8 %): tokens, ventana de contexto, calidad, latencia, costo y caché.",
+        "Prompts y contexto (11,0 %): instrucciones, ejemplos, restricciones, gestión del contexto y salidas estructuradas.",
+        "Seguridad y uso responsable (8,1 %): mínimo privilegio, datos sintéticos, permisos y revisión humana.",
+        "Herramientas y MCP (10,6 %): contratos, argumentos, resultados, manejo de errores y herramienta de consulta de solo lectura."
+      ],
+      "optional": false
+    },
+    {
+      "name": "Claude Certified Associate – Foundations",
+      "url": "https://anthropic-partners.skilljar.com/claude-certified-associate-foundations-certification",
+      "topics": [
+        "Uso cotidiano de Claude y selección del modelo y producto.",
+        "Instrucciones, evaluación de resultados, proyectos y fuentes de conocimiento.",
+        "Integración en flujos de trabajo, uso responsable y resolución de problemas."
+      ],
+      "optional": true
+    }
+  ],
+  [
+    {
+      "name": "Claude Certified Developer – Professional (CCDV-P)",
+      "url": "https://cc.sj-cdn.net/instructor/6nizmqk8tpzpfjvt6qmmav7rh/public/1794947325/Claude_Certified_Developer-Professional_Exam_Guide.pdf",
+      "topics": [
+        "Orquestación avanzada (17 %): patrones multiagente, delegación, estado durable, memoria y revisión humana.",
+        "Integración fiable (20 %): resiliencia, límites de uso, procesamiento por lotes, MCP y recuperación de información.",
+        "Observabilidad (12 %): trazas, métricas, logs y seguimiento de calidad.",
+        "Depuración e incidentes (10 %): diagnóstico de fallos, recuperación y análisis de causa raíz.",
+        "Evaluaciones y calidad (12 %): conjuntos de referencia, métricas, regresión y criterios de publicación.",
+        "Optimización (8 %): presupuesto de tokens, latencia, caché y capacidad.",
+        "Controles en producción (11 %): validación de entradas y salidas, permisos acotados y revisión de acciones sensibles.",
+        "Operación de agentes de desarrollo (10 %): coordinación de tareas, revisión de cambios, pruebas y gobernanza de entregas."
+      ],
+      "optional": false
+    },
+    {
+      "name": "AWS Certified AI Practitioner (AIF-C01)",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01.html",
+      "topics": [
+        "Fundamentos de IA, ML e IA generativa.",
+        "Aplicaciones de modelos fundacionales y selección de soluciones.",
+        "IA responsable, seguridad, cumplimiento y gobernanza."
+      ],
+      "optional": true
+    }
+  ],
+  [
+    {
+      "name": "Certified Kubernetes Application Developer (CKAD)",
+      "url": "https://github.com/cncf/curriculum/blob/main/ckad/README.md",
+      "topics": [
+        "Diseño y construcción (20 %): imágenes, Jobs, CronJobs, contenedores múltiples y volúmenes.",
+        "Despliegue (20 %): Deployment, actualizaciones, Helm y estrategias de entrega.",
+        "Observabilidad y mantenimiento (15 %): probes, registros, métricas y diagnóstico.",
+        "Configuración y seguridad (25 %): ConfigMap, Secret, ServiceAccount, límites y contextos de seguridad.",
+        "Servicios y redes (20 %): Service, Ingress, NetworkPolicy y resolución de problemas."
+      ],
+      "optional": false
+    },
+    {
+      "name": "AWS Developer – Associate · inicio del estudio",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/developer-associate-02/",
+      "topics": [
+        "Desarrollo con servicios AWS: SDK, Lambda, API Gateway, DynamoDB, S3 e integración asíncrona.",
+        "Seguridad: identidades y permisos IAM, cifrado con KMS, gestión de secretos y acceso a recursos.",
+        "Despliegue: artefactos, infraestructura como código, CI/CD y estrategias de publicación.",
+        "Diagnóstico y optimización: CloudWatch, trazas, depuración y rendimiento de aplicaciones."
+      ],
+      "optional": false
+    },
+    {
+      "name": "Kubernetes and Cloud Native Associate (KCNA)",
+      "url": "https://github.com/cncf/curriculum/blob/main/kcna/README.md",
+      "topics": [
+        "Conceptos de Kubernetes (44 %), orquestación (28 %), entrega cloud native (16 %) y arquitectura (12 %)."
+      ],
+      "optional": true
+    },
+    {
+      "name": "AWS Certified Cloud Practitioner (CLF-C02)",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/",
+      "topics": [
+        "Conceptos de nube, seguridad y cumplimiento, servicios AWS, facturación y soporte."
+      ],
+      "optional": true
+    }
+  ],
+  [
+    {
+      "name": "AWS Certified Developer – Associate (DVA-C02)",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/developer-associate-02/",
+      "topics": [
+        "Desarrollo con servicios AWS: SDK, Lambda, API Gateway, DynamoDB, S3 e integración asíncrona.",
+        "Seguridad: identidades y permisos IAM, cifrado con KMS, gestión de secretos y acceso a recursos.",
+        "Despliegue: artefactos, infraestructura como código, CI/CD y estrategias de publicación.",
+        "Diagnóstico y optimización: CloudWatch, trazas, depuración y rendimiento de aplicaciones."
+      ],
+      "optional": false
+    },
+    {
+      "name": "Claude Certified Architect – Foundations (CCAR-F)",
+      "url": "https://cc.sj-cdn.net/instructor/6nizmqk8tpzpfjvt6qmmav7rh/public/1794946250/Claude_Certified_Architect_-_Foundations_Exam_Guide.pdf",
+      "topics": [
+        "Arquitectura y orquestación (27 %): patrones, subagentes y flujos de decisión.",
+        "Herramientas y MCP (18 %): contratos, selección de herramientas, errores e integración.",
+        "Claude Code (20 %): instrucciones de proyecto, skills, configuración y CI/CD.",
+        "Prompts y salida estructurada (20 %): esquemas, ejemplos, validación y extracción.",
+        "Contexto y confiabilidad (15 %): gestionar ventanas, transferir contexto y escalar situaciones que requieren intervención."
+      ],
+      "optional": false
+    },
+    {
+      "name": "AWS Certified Solutions Architect – Associate (SAA-C03)",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/solutions-architect-associate-03.html",
+      "topics": [
+        "Arquitecturas seguras, resilientes, de alto rendimiento y optimizadas en costo."
+      ],
+      "optional": true
+    }
+  ],
+  [
+    {
+      "name": "Claude Certified Architect – Professional (CCAR-P)",
+      "url": "https://cc.sj-cdn.net/instructor/6nizmqk8tpzpfjvt6qmmav7rh/public/1794946420/Claude_Certified_Architect_-_Professional_Exam_Guide_Updated_Dec_7.pdf",
+      "topics": [
+        "Diseño de soluciones (18 %): selección de patrones de IA, delegación a personas y arquitectura de extremo a extremo.",
+        "Modelos, prompts y contexto (13 %): selección según restricciones, instrucciones, memoria y presupuestos de tokens.",
+        "Integración (21 %): APIs, MCP, recuperación de información, identidad y gestión de datos.",
+        "Evaluación y optimización (17 %): conjuntos de referencia, experimentos, criterios de calidad, rendimiento y costo.",
+        "Gobernanza y riesgo (16 %): controles de acceso, supervisión humana, gestión de datos y cumplimiento.",
+        "Comunicación y ciclo de vida (7 %): necesidades de negocio, decisiones arquitectónicas y seguimiento.",
+        "Productividad y operación (8 %): prácticas de Claude Code para equipos, documentación y operación de soluciones."
+      ],
+      "optional": false
+    },
+    {
+      "name": "Certified Kubernetes Administrator (CKA)",
+      "url": "https://github.com/cncf/curriculum/blob/main/cka/README.md",
+      "topics": [
+        "Arquitectura y configuración del clúster (25 %).",
+        "Workloads y scheduling (15 %), redes y servicios (20 %), almacenamiento (10 %) y resolución de problemas (30 %)."
+      ],
+      "optional": true
+    }
+  ],
+  [
+    {
+      "name": "Claude Certified Architect – Professional · repaso y examen",
+      "url": "https://cc.sj-cdn.net/instructor/6nizmqk8tpzpfjvt6qmmav7rh/public/1794946420/Claude_Certified_Architect_-_Professional_Exam_Guide_Updated_Dec_7.pdf",
+      "topics": [
+        "Diseño de soluciones (18 %): selección de patrones de IA, delegación a personas y arquitectura de extremo a extremo.",
+        "Modelos, prompts y contexto (13 %): selección según restricciones, instrucciones, memoria y presupuestos de tokens.",
+        "Integración (21 %): APIs, MCP, recuperación de información, identidad y gestión de datos.",
+        "Evaluación y optimización (17 %): conjuntos de referencia, experimentos, criterios de calidad, rendimiento y costo.",
+        "Gobernanza y riesgo (16 %): controles de acceso, supervisión humana, gestión de datos y cumplimiento.",
+        "Comunicación y ciclo de vida (7 %): necesidades de negocio, decisiones arquitectónicas y seguimiento.",
+        "Productividad y operación (8 %): prácticas de Claude Code para equipos, documentación y operación de soluciones.",
+        "Defensa del caso integral, simulacros y revisión de brechas antes de gestionar el examen."
+      ],
+      "optional": false
+    }
+  ]
+];
+function renderCertificationTopics(index) {
+  return `<div class="cert-topics"><h4>Temario de certificaciones</h4>${certificationTopics[index].map(cert => `
+    <details class="cert-block">
+      <summary>${cert.name}${cert.optional ? ' · Opcional' : ''}</summary>
+      <ul>${cert.topics.map(topic => `<li>${topic}</li>`).join('')}</ul>
+      <p><a href="${cert.url}" target="_blank" rel="noopener">Guía oficial</a></p>
+    </details>`).join('')}</div>`;
+}
 const phaseResources = [
   '<a href="#certificacion">Preparación de Developer – Foundations</a> · <a href="#mensajeria">Laboratorio XML/JSON</a>',
   '<a href="#laboratorios-agenticos">Laboratorios de migración y APIs nuevas</a> · <a href="#certificacion">Certificaciones</a>',
@@ -288,6 +470,7 @@ $('curriculum').innerHTML = phases.map(([name, , english, technology, deliverabl
       <summary>Contenidos y entregable</summary>
       <ul>${phaseContents[index].map(topic => `<li>${topic}</li>`).join('')}</ul>
       <p><strong>Entregable.</strong> ${deliverable}</p>
+      ${renderCertificationTopics(index)}
     </details>
     <p class="phase-links">${phaseResources[index]}</p>
   </li>
@@ -361,7 +544,7 @@ function renderPhase(index) {
     <h3>${phase[0]}</h3><p><strong>Inglés</strong> · ${phase[2]}</p>
     <p><strong>Tecnología</strong> · ${phase[3]}</p>
     <p><strong>Certificación objetivo</strong> · ${phaseCertifications[index]}</p>
-    <details class="phase-syllabus"><summary>Contenidos de esta fase</summary><ul>${phaseContents[index].map(item => '<li>' + item + '</li>').join('')}</ul></details><p class="phase-links">${phaseResources[index]}</p>
+    <details class="phase-syllabus"><summary>Contenidos de esta fase</summary><ul>${phaseContents[index].map(item => '<li>' + item + '</li>').join('')}</ul>${renderCertificationTopics(index)}</details><p class="phase-links">${phaseResources[index]}</p>
     <p><strong>Entregable</strong> · ${phase[4]}</p>${index ? '<p>Duración prevista · ' + phase[1] + ' semanas</p>' : ''}`;
   const button = $('activatePhase');
   const next = ranges.length;
