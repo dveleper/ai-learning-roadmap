@@ -12,18 +12,50 @@
 .curriculum-grid h3{margin:6px 0 12px}
 .curriculum-grid p:last-child{margin-bottom:0}
 @media(max-width:700px){.course-grid,.curriculum-grid{grid-template-columns:1fr}}
+
+.portal-nav{position:sticky;top:0;z-index:10;display:flex;gap:4px;flex-wrap:wrap;background:#0b1424f5;border:1px solid #2a3b50;border-radius:12px;padding:8px;margin:0 0 30px;box-shadow:0 5px 18px #0004}
+.portal-nav a{font-size:14px;text-decoration:none;color:#c8d7e7;padding:9px 11px;border-radius:7px;white-space:nowrap}
+.portal-nav a:hover,.portal-nav a:focus-visible{background:#263b50;color:#a4f5e4;outline:2px solid #73dbc3}
+section[id],details[id],#bitacora,[id^="clase-"]{scroll-margin-top:85px}
+.curriculum-grid{align-items:start}
+.curriculum-grid .panel{padding:20px}
+.curriculum-grid .muted{color:#a6e5d5;font-size:14px}
+.phase-syllabus{border-top:1px solid #34475d;margin:14px 0 10px;padding-top:12px}
+.phase-syllabus summary{cursor:pointer;color:#a6e5d5;font-size:15px;font-weight:600}
+.phase-syllabus li{margin:8px 0;line-height:1.5}
+.phase-links{font-size:14px;margin:12px 0 0}
+.resource-stack{display:grid;gap:12px}
+.resource-panel{padding:0;overflow:hidden}
+.resource-panel>summary{cursor:pointer;display:flex;flex-direction:column;gap:5px;padding:20px;list-style:none;position:relative;padding-right:52px}
+.resource-panel>summary::-webkit-details-marker{display:none}
+.resource-panel>summary::after{content:'+';position:absolute;right:22px;top:50%;transform:translateY(-50%);font-size:24px;color:#a6e5d5}
+.resource-panel[open]>summary::after{content:'−'}
+.resource-panel>summary:hover{background:#193045}
+.resource-panel>summary:focus-visible,.phase-syllabus summary:focus-visible{outline:2px solid #73dbc3;outline-offset:-2px}
+.resource-title{font-size:18px;font-weight:650}
+.resource-kicker{font-size:13px;color:#a6e5d5}
+.resource-content{border-top:1px solid #34475d;padding:18px 20px}
+.resource-content .panel{background:#0e1b2c}
+.resource-content li{line-height:1.6;margin-bottom:10px}
+.phase-picker-title{margin:24px 0 12px}
+@media(max-width:750px){.portal-nav{overflow-x:auto;flex-wrap:nowrap}.portal-nav a{font-size:13px;padding:9px}.resource-panel>summary{padding:16px 46px 16px 16px}.resource-content{padding:14px}.resource-title{font-size:16px}}
 </style></head><body><main><header class="top"><div class="logo">◈ ENGLISH + AI ENGINEERING</div><div class="pill">Ruta de aprendizaje · 2026—2028</div></header><section class="hero">
   <h1>De desarrollo backend a <strong>arquitectura de soluciones de IA</strong></h1>
   <p>Ruta de seis fases para profesionales de software que quieren diseñar, construir y operar aplicaciones con IA generativa mientras desarrollan el inglés técnico para explicar sus decisiones.</p>
   <div class="actions">
-    <a class="btn primary" href="#temario">Ver el plan de estudios</a>
-    <a class="btn" href="#requisitos">Consultar prerrequisitos</a>
-    <a class="btn" href="#laboratorios-agenticos">Laboratorios agénticos</a>
-    <a class="btn" href="#certificacion">Certificación Anthropic</a>
-    <a class="btn" href="#despliegue">Laboratorio de despliegue</a>
-    <a class="btn" href="#sesiones">Ir a las sesiones</a>
+    <a class="btn primary" href="#sesiones">Ir a mis clases</a>
+    <a class="btn" href="#temario">Explorar el plan de estudios</a>
   </div>
 </section>
+<nav class="portal-nav" aria-label="Navegación del portal">
+  <a href="#requisitos">Programa</a>
+  <a href="#temario">Plan de estudios</a>
+  <a href="#certificacion">Certificaciones</a>
+  <a href="#laboratorios">Laboratorios</a>
+  <a href="#fases">Mi avance</a>
+  <a href="#sesiones">Calendario</a>
+  <a href="#bitacora">Bitácora</a>
+</nav>
 <section id="requisitos" class="section course-grid" aria-label="Prerrequisitos y metodología">
   <div class="panel">
     <h2>Prerrequisitos recomendados</h2>
@@ -44,43 +76,13 @@
 </section>
 <section id="temario" class="section">
   <h2>Plan de estudios</h2>
-  <p>Las seis fases combinan temas técnicos, práctica de inglés y un entregable para demostrar lo aprendido.</p>
-  <div class="panel">
-    <h3>Mensajería e integración XML y JSON</h3>
-    <p>En la fase 1, valida una cotización en JSON y XML. Usa OpenAPI para describir la API REST, JSON Schema para validar JSON y XSD para validar XML. Con Jackson y JAXB, convierte ambos formatos al mismo modelo de dominio y prueba campos requeridos, importes inválidos y namespaces.</p>
-    <p>En la fase 2, integra un proveedor SOAP simulado mediante su contrato WSDL y transforma la respuesta XML en una cotización que la API devuelve en JSON. En las fases siguientes, publica un evento de emisión en Kafka y enruta un mensaje en RabbitMQ. Practica evolución de esquemas, idempotencia, reintentos y trazabilidad. Usa Claude Code para proponer casos de prueba y comprueba los resultados ejecutándolos.</p>
-  </div>
+  <p>Explora las fases en orden. Cada tarjeta muestra la certificación objetivo y el hito. Abre sus contenidos para consultar el temario y los entregables.</p>
+
   <ol id="curriculum" class="curriculum-grid"></ol>
 </section>
-<section id="laboratorios-agenticos" class="section">
-  <h2>Fase 2 · Sistemas agénticos para modernizar servicios y crear APIs</h2>
-  <p>Construye un flujo que use Claude para analizar evidencia y proponer cambios, con compilación, pruebas y revisión humana antes de integrar cada PR. Guarda los contratos, las decisiones y los resultados en el repositorio. Usa Claude Code para trabajar sobre el código y practica la coordinación del flujo con Claude API y herramientas acotadas en un repositorio de laboratorio.</p>
-  <div class="course-grid">
-    <div class="panel">
-      <h3>Migración de una integración existente</h3>
-      <ol>
-        <li><strong>Inventario.</strong> Reúne contratos, configuraciones, rutas, dependencias y ejemplos sintéticos. Para IBM ACE o IBM Integration Bus 10, revisa flujos, ESQL, WSDL/XSD, colas MQ y políticas aplicables. Para otro origen, usa el mismo inventario con sus artefactos equivalentes. Registra archivo y evidencia para cada regla identificada.</li>
-        <li><strong>Caracterización.</strong> Captura entradas, salidas y efectos observables. Incluye errores, timeouts, transacciones, duplicados y formatos XML o JSON. Marca reglas desconocidas para revisión humana.</li>
-        <li><strong>Migración incremental.</strong> Pide a Claude un plan por flujo. Define puertos y adaptadores en el scaffold Java, conserva el contrato acordado y migra una porción a la vez. Usa pruebas diferenciales y normaliza únicamente campos variables acordados, como timestamps.</li>
-        <li><strong>Validación y transición.</strong> Compara las salidas y los efectos del origen y el destino en un sandbox con dependencias simuladas. Documenta qué diferencias se aceptan. Ensaya el cambio de tráfico y el rollback en laboratorio.</li>
-      </ol>
-      <p><strong>Evidencia.</strong> Servicio Java migrado, matriz de equivalencia con referencias al origen y resultados de pruebas de paridad.</p>
-    </div>
-    <div class="panel">
-      <h3>Desarrollo de una API nueva</h3>
-      <ol>
-        <li><strong>Especificación.</strong> Define consumidores, reglas de negocio, permisos y criterios de aceptación para una API de siniestros. Usa BMad o GitHub Spec Kit para producir la especificación y el plan.</li>
-        <li><strong>Contrato primero.</strong> Diseña OpenAPI, ejemplos, errores, versionado e idempotencia cuando corresponda. Pide a Claude que detecte ambigüedades y convierte los criterios aprobados en pruebas.</li>
-        <li><strong>Implementación.</strong> Divide el trabajo en cambios pequeños. Implementa una operación en el scaffold Java con dominio, caso de uso y adaptadores. Usa herramientas de lectura y pruebas para que el agente verifique su propuesta.</li>
-        <li><strong>Revisión y operación.</strong> Comprueba el contrato, ejecuta pruebas negativas, revisa la telemetría y prepara un PR con evidencia y pasos de despliegue.</li>
-      </ol>
-      <p><strong>Evidencia.</strong> API nueva con OpenAPI, pruebas de contrato e integración y una demostración en inglés.</p>
-    </div>
-  </div>
-  <p><strong>Evaluación común.</strong> Ejecuta el flujo sobre casos nuevos y mide corrección, cambios rechazados en revisión, latencia y costo. Detén el flujo cuando falte evidencia, falle una prueba o se agote su presupuesto. Relaciona cada práctica con Agentes y flujos, Aplicaciones e integración, y Evaluación y depuración de Developer – Foundations.</p>
-</section>
-<section id="certificacion" class="section">
-  <h2>Ruta de certificación Anthropic</h2>
+<section class="section" aria-label="Certificaciones"><h2>Certificaciones y preparación</h2><details id="certificacion" class="resource-panel panel">
+  <summary><span class="resource-kicker">Fases 1–6 · Certificaciones</span><span class="resource-title">Ruta de certificación Anthropic</span></summary>
+  <div class="resource-content">
   <p><strong>Meta personal 2026:</strong> presentar Claude Certified Developer – Foundations antes del 31 de diciembre si se confirma la elegibilidad, hay cupo y los ejercicios de preparación ya se resuelven con autonomía.</p>
   <div class="course-grid">
     <div class="panel">
@@ -107,9 +109,51 @@
       </ul>
     </div>
   </div>
-</section>
-<section id="despliegue" class="section">
-  <h2>Laboratorio de despliegue de microservicios Java</h2>
+</div>
+</details></section>
+<section id="laboratorios" class="section">
+  <h2>Laboratorios por fase</h2>
+  <p>Consulta las prácticas asociadas a cada etapa del programa.</p>
+  <div class="resource-stack">
+    <details id="mensajeria" class="resource-panel panel">
+      <summary><span class="resource-kicker">Fases 1–2 · Integración</span><span class="resource-title">Mensajería e integración XML y JSON</span></summary>
+      <div class="resource-content">
+    <p>En la fase 1, valida una cotización en JSON y XML. Usa OpenAPI para describir la API REST, JSON Schema para validar JSON y XSD para validar XML. Con Jackson y JAXB, convierte ambos formatos al mismo modelo de dominio y prueba campos requeridos, importes inválidos y namespaces.</p>
+    <p>En la fase 2, integra un proveedor SOAP simulado mediante su contrato WSDL y transforma la respuesta XML en una cotización que la API devuelve en JSON. En las fases siguientes, publica un evento de emisión en Kafka y enruta un mensaje en RabbitMQ. Practica evolución de esquemas, idempotencia, reintentos y trazabilidad. Usa Claude Code para proponer casos de prueba y comprueba los resultados ejecutándolos.</p>
+  </div>
+    </details>
+    <details id="laboratorios-agenticos" class="resource-panel panel">
+  <summary><span class="resource-kicker">Fase 2 · AI Engineering</span><span class="resource-title">Sistemas agénticos para modernizar servicios y crear APIs</span></summary>
+  <div class="resource-content">
+  <p>Construye un flujo que use Claude para analizar evidencia y proponer cambios, con compilación, pruebas y revisión humana antes de integrar cada PR. Guarda los contratos, las decisiones y los resultados en el repositorio. Usa Claude Code para trabajar sobre el código y practica la coordinación del flujo con Claude API y herramientas acotadas en un repositorio de laboratorio.</p>
+  <div class="course-grid">
+    <div class="panel">
+      <h3>Migración de una integración existente</h3>
+      <ol>
+        <li><strong>Inventario.</strong> Reúne contratos, configuraciones, rutas, dependencias y ejemplos sintéticos. Para IBM ACE o IBM Integration Bus 10, revisa flujos, ESQL, WSDL/XSD, colas MQ y políticas aplicables. Para otro origen, usa el mismo inventario con sus artefactos equivalentes. Registra archivo y evidencia para cada regla identificada.</li>
+        <li><strong>Caracterización.</strong> Captura entradas, salidas y efectos observables. Incluye errores, timeouts, transacciones, duplicados y formatos XML o JSON. Marca reglas desconocidas para revisión humana.</li>
+        <li><strong>Migración incremental.</strong> Pide a Claude un plan por flujo. Define puertos y adaptadores en el scaffold Java, conserva el contrato acordado y migra una porción a la vez. Usa pruebas diferenciales y normaliza únicamente campos variables acordados, como timestamps.</li>
+        <li><strong>Validación y transición.</strong> Compara las salidas y los efectos del origen y el destino en un sandbox con dependencias simuladas. Documenta qué diferencias se aceptan. Ensaya el cambio de tráfico y el rollback en laboratorio.</li>
+      </ol>
+      <p><strong>Evidencia.</strong> Servicio Java migrado, matriz de equivalencia con referencias al origen y resultados de pruebas de paridad.</p>
+    </div>
+    <div class="panel">
+      <h3>Desarrollo de una API nueva</h3>
+      <ol>
+        <li><strong>Especificación.</strong> Define consumidores, reglas de negocio, permisos y criterios de aceptación para una API de siniestros. Usa BMad o GitHub Spec Kit para producir la especificación y el plan.</li>
+        <li><strong>Contrato primero.</strong> Diseña OpenAPI, ejemplos, errores, versionado e idempotencia cuando corresponda. Pide a Claude que detecte ambigüedades y convierte los criterios aprobados en pruebas.</li>
+        <li><strong>Implementación.</strong> Divide el trabajo en cambios pequeños. Implementa una operación en el scaffold Java con dominio, caso de uso y adaptadores. Usa herramientas de lectura y pruebas para que el agente verifique su propuesta.</li>
+        <li><strong>Revisión y operación.</strong> Comprueba el contrato, ejecuta pruebas negativas, revisa la telemetría y prepara un PR con evidencia y pasos de despliegue.</li>
+      </ol>
+      <p><strong>Evidencia.</strong> API nueva con OpenAPI, pruebas de contrato e integración y una demostración en inglés.</p>
+    </div>
+  </div>
+  <p><strong>Evaluación común.</strong> Ejecuta el flujo sobre casos nuevos y mide corrección, cambios rechazados en revisión, latencia y costo. Detén el flujo cuando falte evidencia, falle una prueba o se agote su presupuesto. Relaciona cada práctica con Agentes y flujos, Aplicaciones e integración, y Evaluación y depuración de Developer – Foundations.</p>
+</div>
+</details>
+    <details id="despliegue" class="resource-panel panel">
+  <summary><span class="resource-kicker">Fase 3 · Cloud y Kubernetes</span><span class="resource-title">Despliegue de microservicios Java</span></summary>
+  <div class="resource-content">
   <p>En la fase 3, despliega el mismo microservicio Spring Boot WebFlux primero en Kubernetes local y después, opcionalmente, en Amazon EKS. El ejemplo parte de un scaffold de arquitectura limpia para Java y reproduce un flujo de entrega empresarial con un repositorio y datos de laboratorio.</p>
   <div class="course-grid">
     <div class="panel">
@@ -137,8 +181,11 @@
     </div>
   </div>
   <p><strong>Evidencia de cierre.</strong> Entrega un repositorio de ejemplo con Dockerfile, Compose, chart Helm, pipeline, pruebas, instrucciones de despliegue y rollback. Adjunta una captura de métricas y explica en inglés cómo diagnosticarías un fallo.</p>
+</div>
+</details>
+  </div>
 </section>
-<section class="metrics"><div class="metric"><span>Fases del programa</span><b>6</b><span>Calendario por fase</span></div><div class="metric"><span>Clases de la fase</span><b id="total">62</b><span>80 min por sesión</span></div><div class="metric"><span>Clases completadas</span><b id="completed">0</b><span id="pct">0% de la fase 1</span></div><div class="metric"><span>Inglés objetivo</span><b>B2</b><span>Meta, no certificación obtenida</span></div></section><div class="panel"><div class="row"><h3>Progreso de la fase seleccionada</h3><span id="progressLabel" class="muted">0 de 62 clases</span></div><div class="progress" aria-label="Progreso"><div id="progressBar"></div></div><p style="margin-bottom:0">Horario: lunes a sábado, <strong>6:00–7:20 p. m.</strong> (Colombia). Bloque de voz: <strong>7:00–7:20 p. m.</strong></p></div><section id="fases" class="section"><h2>Avance de las seis fases</h2><div id="phaseButtons" class="phases"></div><div class="panel detail" style="margin-top:14px"><div id="phaseDetail" aria-live="polite"></div><div class="actions"><button id="activatePhase" class="primary" hidden></button></div><p id="phaseStatus" class="muted" role="status"></p></div></section><section class="section grid"><div class="panel"><h2>Rutina semanal</h2><div id="week"></div><p><strong>Todos los días, 7:00–7:20:</strong> 5 min listening, 5 min shadowing, 8 min speaking, 2 min correcciones.</p></div><div class="panel"><h2>Fechas sin clase</h2><div id="excluded"></div><p>Los descansos se respetan en el listado de sesiones.</p></div></section><section id="sesiones" class="section"><div class="row"><h2 id="calendarTitle">Calendario de clases · Fase 1</h2><span class="badge" id="calendarRange"></span></div><div class="panel"><div class="filters"><select id="filter" aria-label="Filtrar clases"><option value="all">Todas las clases</option><option value="pending">Pendientes</option><option value="done">Completadas</option></select><select id="month" aria-label="Filtrar mes"><option value="all">Todos los meses</option></select></div><div id="sessionList"></div></div></section><section class="section grid"><div class="panel"><h2>Bitácora de aprendizaje</h2><p>Selecciona una clase y guarda un resumen de lo que practicaste. No introduzcas información confidencial.</p><label for="logSession">Sesión</label><select id="logSession" style="width:100%"></select><label for="score">Speaking / comprensión (autoevaluación 1–5)</label><select id="score" style="width:100%"><option value="">Sin evaluar</option><option value="1">1 — Necesito apoyo</option><option value="2">2 — En progreso</option><option value="3">3 — Funcional con ayuda</option><option value="4">4 — Mayor autonomía</option><option value="5">5 — Consistente</option></select><label for="notes">Resumen y próximos pasos</label><textarea id="notes" placeholder="Ej.: Practiqué presentaciones y preguntas sobre Spring Boot..."></textarea><div class="actions"><button class="primary" id="saveLog">Guardar registro</button><button id="clearLog">Limpiar campos</button></div><p id="saved" class="muted" aria-live="polite"></p></div><div class="panel"><h2>Sincronización y respaldo</h2><p>Usa la misma cuenta de Google en tu laptop y celular. Si ya tienes avances en este navegador, pulsa Importar avances locales después de iniciar sesión.</p><div class="actions"><button id="login" class="primary">Iniciar sesión con Google</button><button id="logout" hidden>Cerrar sesión</button><button id="sync" hidden>Sincronizar ahora</button><button id="importLocal" hidden>Importar avances locales</button></div><p id="syncStatus" role="status">Avances guardados en este navegador.</p><p>Exporta un archivo JSON de progreso para conservarlo o compartirlo voluntariamente. También puedes importar un respaldo anterior.</p><div class="actions"><button class="primary" id="export">Exportar progreso JSON</button><button id="importBtn">Importar respaldo</button><input id="importFile" type="file" accept="application/json,.json" class="hide"></div></div></section><footer class="footer">Ruta de formación diseñada por Diego Armando Vélez Peralta. La programación de la fase 1 está en <a href="https://calendar.google.com/">Google Calendar</a>. Las fases siguientes generan su calendario dentro del portal. Las certificaciones y niveles de inglés requieren evaluación independiente.</footer></main><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.89.0/dist/umd/supabase.js"></script><script src="./progress-sync.js"></script><script>
+<section id="fases" class="section"><h2>Mi avance</h2><section class="metrics"><div class="metric"><span>Fases del programa</span><b>6</b><span>Calendario por fase</span></div><div class="metric"><span>Clases de la fase</span><b id="total">62</b><span>80 min por sesión</span></div><div class="metric"><span>Clases completadas</span><b id="completed">0</b><span id="pct">0% de la fase 1</span></div><div class="metric"><span>Inglés objetivo</span><b>B2</b><span>Meta, no certificación obtenida</span></div></section><div class="panel"><div class="row"><h3>Progreso de la fase seleccionada</h3><span id="progressLabel" class="muted">0 de 62 clases</span></div><div class="progress" aria-label="Progreso"><div id="progressBar"></div></div><p style="margin-bottom:0">Horario: lunes a sábado, <strong>6:00–7:20 p. m.</strong> (Colombia). Bloque de voz: <strong>7:00–7:20 p. m.</strong></p></div><h3 class="phase-picker-title">Selecciona una fase</h3><div id="phaseButtons" class="phases"></div><div class="panel detail" style="margin-top:14px"><div id="phaseDetail" aria-live="polite"></div><div class="actions"><button id="activatePhase" class="primary" hidden></button></div><p id="phaseStatus" class="muted" role="status"></p></div></section><section class="section grid"><div class="panel"><h2>Rutina semanal</h2><div id="week"></div><p><strong>Todos los días, 7:00–7:20:</strong> 5 min listening, 5 min shadowing, 8 min speaking, 2 min correcciones.</p></div><div class="panel"><h2>Fechas sin clase</h2><div id="excluded"></div><p>Los descansos se respetan en el listado de sesiones.</p></div></section><section id="sesiones" class="section"><div class="row"><h2 id="calendarTitle">Calendario de clases · Fase 1</h2><span class="badge" id="calendarRange"></span></div><div class="panel"><div class="filters"><select id="filter" aria-label="Filtrar clases"><option value="all">Todas las clases</option><option value="pending">Pendientes</option><option value="done">Completadas</option></select><select id="month" aria-label="Filtrar mes"><option value="all">Todos los meses</option></select></div><div id="sessionList"></div></div></section><section class="section grid"><div class="panel"><h2 id="bitacora">Bitácora de aprendizaje</h2><p>Selecciona una clase y guarda un resumen de lo que practicaste. No introduzcas información confidencial.</p><label for="logSession">Sesión</label><select id="logSession" style="width:100%"></select><label for="score">Speaking / comprensión (autoevaluación 1–5)</label><select id="score" style="width:100%"><option value="">Sin evaluar</option><option value="1">1 — Necesito apoyo</option><option value="2">2 — En progreso</option><option value="3">3 — Funcional con ayuda</option><option value="4">4 — Mayor autonomía</option><option value="5">5 — Consistente</option></select><label for="notes">Resumen y próximos pasos</label><textarea id="notes" placeholder="Ej.: Practiqué presentaciones y preguntas sobre Spring Boot..."></textarea><div class="actions"><button class="primary" id="saveLog">Guardar registro</button><button id="clearLog">Limpiar campos</button></div><p id="saved" class="muted" aria-live="polite"></p></div><div class="panel"><h2>Sincronización y respaldo</h2><p>Usa la misma cuenta de Google en tu laptop y celular. Si ya tienes avances en este navegador, pulsa Importar avances locales después de iniciar sesión.</p><div class="actions"><button id="login" class="primary">Iniciar sesión con Google</button><button id="logout" hidden>Cerrar sesión</button><button id="sync" hidden>Sincronizar ahora</button><button id="importLocal" hidden>Importar avances locales</button></div><p id="syncStatus" role="status">Avances guardados en este navegador.</p><p>Exporta un archivo JSON de progreso para conservarlo o compartirlo voluntariamente. También puedes importar un respaldo anterior.</p><div class="actions"><button class="primary" id="export">Exportar progreso JSON</button><button id="importBtn">Importar respaldo</button><input id="importFile" type="file" accept="application/json,.json" class="hide"></div></div></section><footer class="footer">Ruta de formación diseñada por Diego Armando Vélez Peralta. La programación de la fase 1 está en <a href="https://calendar.google.com/">Google Calendar</a>. Las fases siguientes generan su calendario dentro del portal. Las certificaciones y niveles de inglés requieren evaluación independiente.</footer></main><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.89.0/dist/umd/supabase.js"></script><script src="./progress-sync.js"></script><script>
 const phases=[['Fundamentos de Java, Claude e inglés técnico','25 nov 2026 – 16 feb 2027','A1 sólido → A2 inicial','Java, Spring Boot, Claude Code, Claude API y MCP','Diagnóstico de inglés técnico y API de cotizaciones Java con pruebas, documentación y preparación para Developer – Foundations.'],['AI Engineering aplicado',13,'A2 consolidado','RAG, Claude API, MCP, agentes, migración y desarrollo de APIs, evaluación y seguridad','Asistente técnico, migración con pruebas de paridad y API nueva. Preparación para Developer – Professional.'],['Cloud y sistemas inteligentes',13,'A2 → B1 inicial','Docker, Kubernetes, EKS, CI/CD y observabilidad','Solución desplegada en laboratorio y preparación CKAD y AWS Developer – Associate.'],['Arquitectura y liderazgo',13,'B1 en desarrollo','Diseño de sistemas, seguridad, costos y liderazgo','Arquitectura defendida y preparación para Architect – Foundations y AWS Developer – Associate.'],['Especialización profesional',26,'B1 sólido → B2 inicial','Agentes avanzados, cloud y operación de IA','Portafolio profesional y preparación para Architect – Professional.'],['Consolidación internacional',30,'B2 objetivo','Arquitectura empresarial y entrevistas internacionales','Defensa final, evaluación de inglés y Architect – Professional según el avance.']];const days=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];const topics={1:'Inglés estructurado + vocabulario técnico',2:'Claude Code + laboratorio',3:'Inglés conversacional + gramática',4:'Arquitectura de IA, agentes y MCP',5:'Java + AI Engineering',6:'Evaluación y refuerzo'};const excluded={'2026-12-03':'Fiesta EPAM','2026-12-04':'Viaje a Ibagué','2026-12-05':'Viaje a Ibagué','2026-12-07':'Festividades','2026-12-08':'Festividades','2026-12-24':'Nochebuena','2026-12-25':'Navidad','2026-12-31':'Fin de año','2027-01-01':'Año Nuevo','2027-01-06':'Día de Reyes'};const key=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;const sessions=[];for(let d=new Date(2026,10,25);d<=new Date(2027,1,16);d.setDate(d.getDate()+1)){let k=key(d);if(d.getDay()!==0&&!excluded[k])sessions.push({id:k,day:d.getDay(),date:new Date(d)});}const phaseOneTopics = {
   "2026-11-25": "Presentarme como ingeniero",
   "2026-11-26": "Explorar un scaffold con Claude Code",
@@ -222,17 +269,39 @@ const milestones = [
   'Defender un caso integral de arquitectura de IA en inglés y comprobar el nivel alcanzado mediante una evaluación final.'
 ];
 
+const phaseResources = [
+  '<a href="#certificacion">Preparación de Developer – Foundations</a> · <a href="#mensajeria">Laboratorio XML/JSON</a>',
+  '<a href="#laboratorios-agenticos">Laboratorios de migración y APIs nuevas</a> · <a href="#certificacion">Certificaciones</a>',
+  '<a href="#despliegue">Laboratorio de despliegue</a>',
+  '<a href="#certificacion">Ruta de certificaciones</a>',
+  '<a href="#certificacion">Ruta de certificaciones</a>',
+  '<a href="#certificacion">Ruta de certificaciones</a>'
+];
 $('curriculum').innerHTML = phases.map(([name, , english, technology, deliverable], index) => `
   <li class="panel">
     <span class="muted">Fase ${index + 1} · ${english}</span>
     <h3>${name}</h3>
     <p>${technology}</p>
     <p><strong>Certificación objetivo.</strong> ${phaseCertifications[index]}</p>
-    <ul>${phaseContents[index].map(topic => `<li>${topic}</li>`).join('')}</ul>
-    <p><strong>Entregable.</strong> ${deliverable}</p>
     <p><strong>Hito de aprendizaje.</strong> ${milestones[index]}</p>
+    <details class="phase-syllabus">
+      <summary>Contenidos y entregable</summary>
+      <ul>${phaseContents[index].map(topic => `<li>${topic}</li>`).join('')}</ul>
+      <p><strong>Entregable.</strong> ${deliverable}</p>
+    </details>
+    <p class="phase-links">${phaseResources[index]}</p>
   </li>
 `).join('');
+
+function openResourceFromHash() {
+  const resource = document.getElementById(location.hash.slice(1));
+  if (resource?.tagName === 'DETAILS') {
+    resource.open = true;
+    requestAnimationFrame(() => resource.scrollIntoView({block: 'start'}));
+  }
+}
+window.addEventListener('hashchange', openResourceFromHash);
+openResourceFromHash();
 
 const calendarKey = 'ai-roadmap-phase-calendar-v1';
 const ranges = [['2026-11-25', '2027-02-16']];
@@ -292,7 +361,7 @@ function renderPhase(index) {
     <h3>${phase[0]}</h3><p><strong>Inglés</strong> · ${phase[2]}</p>
     <p><strong>Tecnología</strong> · ${phase[3]}</p>
     <p><strong>Certificación objetivo</strong> · ${phaseCertifications[index]}</p>
-    <h3>Contenidos</h3><ul>${phaseContents[index].map(item => '<li>' + item + '</li>').join('')}</ul>
+    <details class="phase-syllabus"><summary>Contenidos de esta fase</summary><ul>${phaseContents[index].map(item => '<li>' + item + '</li>').join('')}</ul></details><p class="phase-links">${phaseResources[index]}</p>
     <p><strong>Entregable</strong> · ${phase[4]}</p>${index ? '<p>Duración prevista · ' + phase[1] + ' semanas</p>' : ''}`;
   const button = $('activatePhase');
   const next = ranges.length;
